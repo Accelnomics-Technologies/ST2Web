@@ -133,8 +133,8 @@ export default class HistoryDetails extends React.Component {
           onChange={({ path }) => this.handleSection(path)}
         />
         <DetailsToolbar>
-          <Button value="Rerun" data-test="rerun_button" onClick={() => this.handleSection('rerun')} />
-          <Button flat value="Cancel" onClick={() => this.props.handleCancel()} disabled={!execution || execution.status !== 'running'} />
+          <Button value="Rerun" data-test="rerun_button " onClick={() => this.handleSection('rerun')} className="st2-forms__button run_btn"/>
+          <Button flat value="Cancel" onClick={() => this.props.handleCancel()} disabled={!execution || execution.status !== 'running'} className="st2-forms__button preview st2-forms__button--flat" />
 
           <DetailsToolbarSeparator />
         </DetailsToolbar>

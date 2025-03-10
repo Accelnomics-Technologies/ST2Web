@@ -30,7 +30,7 @@ import {
 import notification from '@stackstorm/module-notification';
 import setTitle from '@stackstorm/module-title';
 
-import Filter from '@stackstorm/module-filter';
+// import Filter from '@stackstorm/module-filter';
 import FlexTable from '@stackstorm/module-flex-table';
 import Button from '@stackstorm/module-forms/button.component';
 import {
@@ -38,15 +38,15 @@ import {
   PanelView,
   PanelNavigation,
   Toolbar,
-  ToolbarFilters,
+  // ToolbarFilters,
   ToolbarSearch,
   ToolbarView,
   Content,
   ContentEmpty,
-  ToggleButton,
+  // ToggleButton,
 } from '@stackstorm/module-panel';
 import Time from '@stackstorm/module-time';
-import View from '@stackstorm/module-view';
+// import View from '@stackstorm/module-view';
 import HistoryDetails from './history-details.component';
 import HistoryFlexCard from './history-flex-card.component';
 
@@ -94,16 +94,16 @@ export default class HistoryPanel extends React.Component {
     }).isRequired,
 
     filter: PropTypes.string,
-    filters: PropTypes.array,
+    // filters: PropTypes.array,
     childExecutions: PropTypes.object,
     groups: PropTypes.array,
-    collapsed: PropTypes.bool,
+    // collapsed: PropTypes.bool,
   }
 
   state = {
     maxPages: 0,
     displayUTC: false,
-    advanced: false,
+    // advanced: false,
   }
 
   componentDidMount() {
@@ -420,18 +420,19 @@ export default class HistoryPanel extends React.Component {
   }
 
   render() {
-    const { filter, filters, childExecutions, groups, collapsed } = this.props;
-    const { id, section, page, activeFilters } = this.urlParams;
+    // const { filter, filters, childExecutions, groups, collapsed } = this.props;
+    const { filter,  childExecutions, groups } = this.props;
+    const { id, section, page } = this.urlParams;
 
     const view = this._view ? this._view.value : {};
     const maxPages = this.state.maxPages;
 
     setTitle([ 'History' ]);
 
-    const { advanced } = this.state;
+    // const { advanced } = this.state;
 
     return (
-      <Panel data-test="history_panel">
+      <Panel data-test="history_panel" className="history_panel">
         <PanelView className="st2-history">
           <Toolbar title="History">
             <ToolbarSearch
