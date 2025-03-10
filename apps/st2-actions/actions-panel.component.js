@@ -40,7 +40,7 @@ import {
   ContentEmpty,
   // ToggleButton,
 } from '@stackstorm/module-panel';
-// import View from '@stackstorm/module-view';
+import View from '@stackstorm/module-view';
 import ActionsDetails from './actions-details.component';
 import ActionsFlexCard from './actions-flex-card.component';
 
@@ -273,7 +273,7 @@ export default class ActionsPanel extends React.Component {
               value={filter}
               onChange={({ target: { value }}) => this.handleFilterChange(value)}
             />
-            {/* <ToolbarView>
+            <ToolbarView>
               <View
                 name="st2ActionView"
                 spec={{
@@ -284,11 +284,13 @@ export default class ActionsPanel extends React.Component {
                 }}
                 ref={(ref) => this._view = ref}
                 onChange={() => this.forceUpdate()}
+                className="head_selection"
               />
-            </ToolbarView> */}
-            <ToolbarView>
+            </ToolbarView>
+             {/* <ToolbarView>
               <select
                 ref={(ref) => (this._view = ref)}
+                name="st2ActionView"
                 onChange={(e) => {
                   this.setState({ selectedOption: e.target.value });
                   this.forceUpdate(); // Force re-render when selection changes
@@ -296,12 +298,19 @@ export default class ActionsPanel extends React.Component {
                 value={this.state?.selectedOption || ""}
                 className="border px-2 py-1 rounded"
               >
-                <option value="type">Type</option>
-                <option value="action">Action</option>
-                <option value="runner">Runner</option>
-                <option value="description">Description</option>
+                {[
+                  { key: "type", title: "Type" },
+                  { key: "action", title: "Action" },
+                  { key: "runner", title: "Runner" },
+                  { key: "description", title: "Description" },
+                ].map((item) => (
+                  <option key={item.key} value={item.key}>
+                    {item.title}
+                  </option>
+                ))}
               </select>
-            </ToolbarView>
+              </ToolbarView> */}
+
 
           
             {/* <ToggleButton collapsed={collapsed} onClick={() => this.handleToggleAll()} /> */}

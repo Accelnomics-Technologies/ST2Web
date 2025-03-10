@@ -98,17 +98,7 @@ export default class HistoryFlexCard extends React.Component {
               ) : null }
             </div>
 
-            <div className="st2-flex-card__column st2-flex-card__expand">
-              { isExpandable(execution) ? (
-                <i
-                  className={cx({
-                    'icon-chevron-down': expanded,
-                    'icon-chevron_right': !expanded,
-                  })}
-                  onClick={(e) => this.handleToggleExpand(e)}
-                />
-              ) : null }
-            </div>
+          
 
             <div className="st2-flex-card__column st2-flex-card__status">
               { isExpandable(execution) && view.meta && view.meta.type ? (
@@ -186,7 +176,19 @@ export default class HistoryFlexCard extends React.Component {
                   ) }
                 </div>
               ) : null
-            ) }
+            )}
+            
+            <div className="st2-flex-card__column st2-flex-card__expand">
+              { isExpandable(execution) ? (
+                <i
+                  className={cx({
+                    'icon-chevron-down': expanded,
+                    'icon-chevron_right': !expanded,
+                  })}
+                  onClick={(e) => this.handleToggleExpand(e)}
+                />
+              ) : null }
+            </div>
           </div>
         </div>
       ),

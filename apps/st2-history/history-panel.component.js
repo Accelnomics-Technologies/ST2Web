@@ -46,7 +46,7 @@ import {
   // ToggleButton,
 } from '@stackstorm/module-panel';
 import Time from '@stackstorm/module-time';
-// import View from '@stackstorm/module-view';
+import View from '@stackstorm/module-view';
 import HistoryDetails from './history-details.component';
 import HistoryFlexCard from './history-flex-card.component';
 
@@ -457,7 +457,7 @@ export default class HistoryPanel extends React.Component {
                 )) }
               </ToolbarFilters>
             ) : null } */}
-            {/* <ToolbarView>
+            <ToolbarView>
               <View
                 name="st2HistoryView"
                 spec={{
@@ -477,9 +477,10 @@ export default class HistoryPanel extends React.Component {
                 }}
                 ref={(ref) => this._view = ref}
                 onChange={() => this.forceUpdate()}
+                 className="head_selection"
               />
-            </ToolbarView> */}
-            <ToolbarView>
+            </ToolbarView>
+            {/* <ToolbarView>
               <select
                 ref={(ref) => (this._view = ref)}
                 onChange={(e) => {
@@ -494,7 +495,7 @@ export default class HistoryPanel extends React.Component {
                 <option value="runner">Runner</option>
                 <option value="description">Description</option>
               </select>
-            </ToolbarView>
+            </ToolbarView> */}
             {/* <ToggleButton collapsed={collapsed} onClick={() => this.handleToggleAll()} /> */}
           </Toolbar>
           <Content>
